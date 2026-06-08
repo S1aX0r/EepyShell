@@ -12,6 +12,7 @@ DIM='\033[2m'
 NC='\033[0m'  # No Color
 
 cat <<'EOF'
+
   @@@+@@@@*                          +@@@@=#@@
   @@       .@@@                    @@@-       @@
   @            @@@  =@@@@@@@@%- #@@.           @+
@@ -116,8 +117,12 @@ while true; do
 	use: Load and configure a module
 	info: Show info for module
 	interact: Interact with a Eepy Session
+
+Module Commands:
+	
+	options: Show options for module
+	set: Configure options for module
 	"
-			echo
 		;;
 
 		exit|quit)
@@ -127,15 +132,23 @@ while true; do
 		;;
 		use)
 			echo
-			echo "Using module $MODULE_NAME"
+			echo "Usage: use <MODULE>"
 			echo
 		;;
 		search)
 			echo
-			echo "Searching for modules"
-			progress_bar
+			echo "Usage: search <MODULE>"
 			echo
 		;;
+		info)
+			echo
+			echo "Usage: info <MODULE>"
+			echo
+		;;
+		interact)
 
+			echo
+			echo "Usage: interact <SESSION>"
+			echo
 	esac
 done
