@@ -102,31 +102,38 @@ echo # Print a newline
 echo -e "${RED}Loading EepyShell Framework${NC}"
 progress_bar
 
-shell="esef>"
+shell="esef> "
+
+# Search Modules
+
+search_modules() {
+MODULE_DIR=$(find / -name "eepymodules" 2>/dev/null | xargs -I {} ls {})
+
+echo $MODULE_DIR
+}
 
 while true; do
-	read -r -p $shell commands
+	read -r -p "$shell" commands
 
 	case $commands in
 		help)
 			echo
-			echo "Main Commands:
+			echo "  Main Commands:
 	
-	help: Display the help menu
-	search: Search for a ESEF module
-	use: Load and configure a module
-	info: Show info for module
-	interact: Interact with a Eepy Session
+    help: Display the help menu
+    show: Show all ESEF modules
+    use: Load and configure a module
+    info: Show info for module
+    interact: Interact with a Eepy Session
 
-Module Commands:
-	
-	options: Show options for module
-	set: Configure options for module
-	"
+  Module Commands:
+    
+    options: Show options for module
+    set: Configure options for module
+    "
 		;;
-
 		exit|quit)
-			echo
+			echod
 			echo -e "${RED}Exiting ESEF${NC}"
 			break
 		;;
@@ -135,9 +142,9 @@ Module Commands:
 			echo "Usage: use <MODULE>"
 			echo
 		;;
-		search)
+		show)
 			echo
-			echo "Usage: search <MODULE>"
+      search_modules
 			echo
 		;;
 		info)
@@ -146,7 +153,6 @@ Module Commands:
 			echo
 		;;
 		interact)
-
 			echo
 			echo "Usage: interact <SESSION>"
 			echo
