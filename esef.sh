@@ -133,7 +133,7 @@ while true; do
     "
 		;;
 		exit|quit)
-			echod
+			echo
 			echo -e "${RED}Exiting ESEF${NC}"
 			break
 		;;
